@@ -1,0 +1,2731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raysimz | Innovative Software Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #3a86ff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2667cc;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #3a86ff;
+            border: 2px solid #3a86ff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #3a86ff;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .bg-light {
+            background-color: #f8f9fa;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-40 {
+            margin-top: 40px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        /* Header Styling */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-title h2 {
+            color: #3a86ff; /* Your brand blue */
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .section-title p {
+            color: #686868;
+            font-size: 18px;
+        }
+        .header.scrolled {
+            background-color:rgba(252, 249, 249, 0.932);
+            box-shadow: 0 5px 20px rgba(3, 3, 3, 0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 700;
+            color: #3a86ff;
+        }
+
+        .navbar ul {
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-left: 60px;
+        }
+
+        .navbar ul li a {
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .navbar ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3a86ff;
+            transition: width 0.3s ease;
+        }
+
+        .navbar ul li a:hover:after,
+        .navbar ul li a.active:after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        /*Blue Page Header*/
+        .page-header {
+            background:#3a86ff;
+            color:white;
+            padding: 100px 0;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        .page-header.container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-header h1 {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .page-header .white text {
+            font-size: 18px;
+            opacity: 0.9;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #heroVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* Section Title */
+        .section-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #e9f2ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: #3a86ff;
+            font-size: 30px;
+        }
+        /* Contact Icons Styling */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .contact-item i{
+            font-size: 24px;
+            color: #3a86ff;
+            margin-right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgb(58, 134, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-item h4 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .feature-item h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            background-color: #3a86ff;
+            color: white;
+            font-size: 40px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: #3a86ff;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(58, 134, 255, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        /* Testimonials */
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 0 15px;
+        }
+
+        .testimonial-content {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-content:before {
+            content: '"';
+            font-size: 60px;
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            color: #e9f2ff;
+            z-index: -1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        /*Contact content layout*/
+        .contact-content {
+            display: flex;
+            gap: 40px
+        }
+        .contact-info {
+            flex: 1;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .contact-form {
+            flex: 1;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        /*Stack on mobile*/
+        @media (max-width: 768px){
+            .contact-columns {
+                flex-direction: column;
+            }
+        }
+        /*blue header*/
+        .contact-header {
+            background: #3a86ff;
+            color: white;
+            padding: 60px 0;
+            width: 100%;
+        }
+        .contact-header .container {
+            max-width: 1200px
+        }
+        .contact-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .white-text {
+            color: white;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: #3a86ff;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .cta .btn-secondary {
+            color: white;
+            border-color: white;
+        }
+
+        .cta .btn-secondary:hover {
+            background-color: white;
+            color: #3a86ff;
+        }
+
+        /* About Page */
+        .page-banner {
+            padding: 120px 0 80px;
+            background-color: #3a86ff;
+            color: white;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 36px;
+            color: #3a86ff;
+            margin-bottom: 5px;
+        }
+
+        /* Mission Vision */
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .mv-item {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .mv-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #e9f2ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: #3a86ff;
+            font-size: 30px;
+        }
+
+        .mv-item h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .member-image {
+            position: relative;
+            height: 300px;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-social {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(58, 134, 255, 0.8);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover .member-social {
+            transform: translateY(0);
+        }
+
+        .member-social a {
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .member-social a:hover {
+            background-color: white;
+            color: #3a86ff;
+        }
+
+        .member-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .member-info h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .member-info p {
+            color: #666;
+        }
+
+        /* Clients Section */
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .client-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .client-logo img {
+            max-width: 200%;
+            max-height: 200px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover img {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        /* Social Icons Styling */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transform: all 0,3s ease;
+        }
+        .social-icons a:hover {
+            background: rgb(255,255,255,0.2);
+            transition: translateY(-3px)
+        }
+        /*Footer specific */
+        .footer-social {
+            margin-top: 20px;
+        }
+        /*Contact page specific*/
+        .contact-social {
+            margin: 30px 0
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-header {
+            padding: 30px;
+            text-align: center;
+            background-color: #e9f2ff;
+        }
+
+        .pricing-popular {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            background-color: #3a86ff;
+            color: white;
+            padding: 5px 15px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .pricing-price {
+            font-size: 48px;
+            font-weight: 700;
+            color: #3a86ff;
+            margin: 15px 0;
+        }
+
+        .pricing-price span {
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        .pricing-features {
+            padding: 30px;
+        }
+
+        .pricing-features ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-features ul li i {
+            color: #3a86ff;
+            margin-right: 10px;
+        }
+
+        .pricing-footer {
+            padding: 0 30px 30px;
+            text-align: center;
+        }
+
+        /* Calculator */
+        .calculator {
+            background-color: #3a86ff;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .calculator-group {
+            margin-bottom: 20px;
+        }
+
+        .calculator-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .calculator-group select,
+        .calculator-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .calculator-result {
+            background-color:white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .calculator-result h3 {
+            margin-bottom: 15px;
+        }
+
+        .estimated-price {
+            font-size: 36px;
+            font-weight: 700;
+            color: #3a86ff;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info, .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-details p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-details i {
+            width: 20px;
+           margin-right: 10px;
+           color: #3a86ff; 
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 80px 0 0;
+        }
+
+        .footer-grid {
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 30px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            display: flex;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #3a86ff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: whitesmoke;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+           color:#333;
+           font-size: 24px;
+           transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #3a86ff;
+            transform: translateY(-3px);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+            color: #92989c;
+            font-size: 14px;
+        }
+
+        .footer-bottom a {
+            color: #3a86ff;
+        }
+
+        /* Page Transitions */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Animations */
+        .animate-from-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        .animate-from-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight 0.8s ease forwards;
+        }
+
+        .animate-from-top {
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: slideInTop 0.8s ease forwards;
+        }
+
+        .animate-from-bottom {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideInBottom 0.8s ease forwards;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInTop {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInBottom {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100px;
+            height: 100px;
+        }
+
+        .loader-square {
+            width: 30px;
+            height: 30px;
+            background-color: #3a86ff;
+            margin: 2px;
+            animation: loaderAnim 1.5s infinite ease-in-out;
+        }
+
+        .loader-square:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        .loader-square:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .loader-square:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        .loader-square:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+        .loader-square:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+        .loader-square:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+        .loader-square:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        @keyframes loaderAnim {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(0.5);
+                opacity: 0.5;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+            }
+
+            .navbar.active {
+                left: 0;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar ul li {
+                margin: 15px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .feature-item,
+            .service-card,
+            .portfolio-item {
+                max-width: 100%;
+            }
+        }
+
+/* ===== OPTIMIZED FOOTER ===== */
+footer {
+background: #2c3e50;
+color: white;
+padding: 25px 0 15px;
+font-family: 'Arial', sans-serif;
+}
+.footer-container {
+max-width: 1000px;
+margin: 0 auto;
+padding: 0 15px;
+}
+.footer-content {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: space-between;
+}
+.footer-column {
+flex: 1;
+min-width: 150px;
+}
+/* Headings */
+.footer-column h3 {
+color: white;
+margin-bottom: 12px;
+font-size: 1rem;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+font-weight: 600;
+padding-bottom: 5px;
+border-bottom: 2px solid #3498db;
+}
+/* Interactive Map Box */
+.map-box {
+display: block;
+height: 100px;
+background: #eee;
+border-radius: 4px;
+overflow: hidden;
+position: relative;
+border: 2px solid rgba(255,255,255,0.2);
+transition: all 0.3s;
+margin-top: 5px;
+}
+.map-box:hover {
+border-color: #3498db;
+transform: translateY(-2px);
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.map-box::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(52, 152, 219, 0.3);
+opacity: 0;
+transition: opacity 0.3s;
+z-index: 1;
+}
+.map-box:hover::before {
+opacity: 1;
+}
+.map-box img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.map-label {
+position: absolute;
+bottom: 8px;
+left: 0;
+right: 0;
+text-align: center;
+color: white;
+font-weight: bold;
+text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+z-index: 2;
+font-size: 0.9rem;
+}
+/* Social Icons */
+.social-links a {
+width: 30px;
+height: 30px;
+font-size: 0.9rem;
+background: white;
+color: #2c3e50;
+border-radius: 50%;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+margin-right: 8px;
+transition: all 0.3s;
+}
+.social-links a:hover {
+background: #3498db;
+color: white;
+transform: translateY(-3px);
+}
+/* Other elements remain the same as previous */
+.brand-info { font-size: 0.9rem; line-height: 1.4; margin-bottom: 15px; }
+.footer-column ul { list-style: none; padding: 0; margin: 0; }
+.footer-column li { margin-bottom: 6px; }
+.footer-column a { color: white; text-decoration: none; font-size: 0.9rem; transition: all 0.2s; }
+.footer-column a:hover { color: #3498db; padding-left: 3px; }
+.copyright { text-align: center; padding-top: 15px; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; }
+</style>
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+        </div>
+        <div class="loader-text" style="position: absolute;bottom: 20px; width: 100%; text-align: center; color: #3a86ff; font-weight: 600; font-size: 18px;">A Software Mind</div>"
+    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/">
+                <marquee><img src="c:\Users\ISAAC\Desktop\ray\BackgroundEraser_20250424_173743570.png" alt="logo" width="150" height="45">RAYSIMZ</marquee>
+                </a>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about us" class="nav-link" onclick="showPage('about'); return false;">About Us</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <video autoplay muted loop id="heroVideo">
+                <source src="c:\Users\ISAAC\Downloads\99C00DD6-1B2C-4AAC-8075-32ECFAA10BE2.mov" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="animate-from-top">Welcome To Raysimz</h1>
+                    <p class="animate-from-bottom">Your One Stop Digital Innovation Hub, We transform your ideas into powerful digital realities.</p>
+                    <div class="hero-buttons animate-from-bottom">
+                        <a href="#service"class="btn btn-primary"onclick="showPage('services'); return false;">Our Services</a>
+                        <a href="#contact" class="btn btn-secondary" onclick="showPage('contact'); return false;">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-down">
+                <a href="#features"><i class="fas fa-chevron-down"></i></a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose Raysimz</h2>
+                    <p>We deliver exceptional value through innovative solutions and unparalleled service</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item animate-from-left">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovative Approach</h3>
+                        <p>We combine creativity with technology to deliver unique solutions tailored to your needs.</p>
+                    </div>
+                    <div class="feature-item animate-from-bottom">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Timely Delivery</h3>
+                        <p>We respect your time and deliver projects within agreed timelines without compromising quality.</p>
+                    </div>
+                    <div class="feature-item animate-from-right">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>24/7 Support</h3>
+                        <p>Our dedicated support team is always available to address your concerns and queries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Preview Section -->
+        <section class="services-preview section-padding bg-light">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Core Services</h2>
+                    <p>Comprehensive digital solutions to power your business growth</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card animate-from-left">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>WEB DEVELOPMENT</h3>
+                        <p>Custom websites and web applications built with modern technologies for optimal performance.</p>
+                        <a href="#web-development" class="read-more" onclick="showPage('services', 'web-development'); return false;">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card animate-from-bottom">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>APP DEVELOPMENT</h3>
+                        <p>Native and cross-platform mobile applications for iOS and Android devices.</p>
+                        <a href="#app-development" class="read-more" onclick="showPage('services', 'app-development'); return false;">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card animate-from-right">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>STEM & ROBOTICS</h3>
+                        <p>Comprehensive robotics programs and automations for schools, businesses and enthusiasts.</p>
+                        <a href="#robotics-training" class="read-more" onclick="showPage('services', 'robotics-training'); return false;">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="text-center mt-40">
+                    <a href="#services" class="btn btn-primary" onclick="showPage('services'); return false;">View All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Preview Section -->
+        <section class="portfolio-preview section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Featured Projects</h2>
+                    <p>Explore some of our recent work that delivered exceptional results</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item animate-from-left">
+                        <div class="portfolio-image">
+                            <img src="c:\Users\ISAAC\Desktop\ray\file_000000008b5c61f793dc32bcfdff2ecb_conversation_id=680520a0-c97c-800d-ad1f-6a15362d46b0&message_id=c50d1590-544e-4a1b-9a9d-d1029f996e82.PNG" alt="E-commerce Platform">
+                            <div class="portfolio-overlay">
+                                <h3>E-commerce Platform</h3>
+                                <p>Custom online store with advanced features</p>
+                                <a href="#e-commerceplatform" class="btn btn-small" onclick="showPage('portfolio', 'e-commerceplatform'); return false;">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item animate-from-bottom">
+                        <div class="portfolio-image">
+                            <img src="images/project2.jpg" alt="Mobile Banking App">
+                            <div class="portfolio-overlay">
+                                <h3>Mobile Banking App</h3>
+                                <p>Secure financial application for iOS & Android</p>
+                                <a href="#mobile-bakingapp" class="btn btn-small" onclick="showPage('portfolio', 'mobile-bankingapp'); return false;">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item animate-from-right">
+                        <div class="portfolio-image">
+                            <img src="c:\Users\ISAAC\Desktop\ray\1000087999.jpg" alt="School Robotics Program">
+                            <div class="portfolio-overlay">
+                                <h3>School Robotics Program</h3>
+                                <p>STEM education initiative for primary and post-primary schools</p>
+                                <a href="#robotics-program"class="btn btn-small" onclick="showPage('portfolio', 'school robotics program'); return false;">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-40">
+                    <a href="#portfolio" class="btn btn-primary" onclick="showPage('portfolio'); return false;">View All Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section-padding bg-light">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Our Clients Say</h2>
+                    <p>Hear from businesses that have transformed with our solutions</p>
+                </div>
+                <div class="testimonials-slider">
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <p>"Raysimz delivered our mobile app ahead of schedule with exceptional quality. Their team was professional, responsive, and truly understood our vision."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="c:\Users\ISAAC\Desktop\ray\Screenshot_20241227-231233.jpg" alt="Sarah Johnson">
+                            <h4>Sarah Johnson-</h4>
+                            <p>CEO, TechSolutions Inc.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <p>"The robotics training program implemented by Raysimz has revolutionized our STEM curriculum. Our students are more engaged than ever before."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="c:\Users\ISAAC\Desktop\ray\IMG-20250128-WA0270.jpg" alt="Michael Brown">
+                            <h4>Michael Brown-</h4>
+                            <p>Principal, Greenfield High School</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <p>"Our e-commerce platform developed by Raysimz has increased our online sales by 80%. Their digital marketing strategies are top-notch."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="c:\Users\ISAAC\Desktop\ray\Screenshot_20241227-233146.jpg" alt="Lisa Chen">
+                            <h4>Lisa Chen-</h4>
+                         <p>Marketing Director,FashionHub</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta section-padding">
+            <div class="container">
+                <div class="cta-content animate-from-bottom">
+                    <h2>Ready to Transform Your Business?</h2>
+                    <p>Let's discuss how we can help you achieve your digital goals</p>
+                    <div class="cta-buttons">
+                        <a href="contact" class="btn btn-primary" onclick="showPage('contact');return false;">Get in Touch</a>
+                        <a href="#pricing" class="btn btn-secondary"  onclick="showPage('pricing'); return false;">View Pricing</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- ===== YOUR ORIGINAL ABOUT PAGE CONTENT ===== -->
+<section id="about us" class="page">
+    <!-- Page Banner -->
+    <section class="page-banner">
+    <div class="container">
+    <h1>About Raysimz</h1>
+    <p>Learn about our mission, vision, and the team behind our success</p>
+    </div>
+    </section>
+    <!-- About Company Section -->
+    <section class="about-company section-padding">
+    <div class="container">
+    <div class="about-grid">
+    <div class="about-content">
+    <div class="section-title">
+    <h2>Our Story</h2>
+    </div>
+    <p>Founded in 2022, RAYSIMZ began as a small team of passionate developers with a vision to create impactful digital solutions. Today, we've grown into a full-service software company serving clients across multiple industries.</p>
+    <p>Our journey has been marked by continuous learning, innovation, and a commitment to delivering exceptional value to our clients. We take pride in our ability to adapt to technological changes while maintaining our core values.</p>
+    <div class="about-stats">
+    <div class="stat-item">
+    <h3>4+</h3>
+    <p>Years of Experience</p>
+    </div>
+    <div class="stat-item">
+    <h3>30+</h3>
+    <p>Projects Completed</p>
+    </div>
+    <div class="stat-item">
+    <h3>95%</h3>
+    <p>Client Retention</p>
+    </div>
+    </div>
+    </div>
+    <div class="about-image">
+    <img src="c:\Users\ISAAC\Downloads\IMG_3574.jpg" alt="Raysimz Team">
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Mission Vision Section -->
+    <section class="mission-vision section-padding bg-light">
+    <div class="container">
+    <div class="mv-grid">
+    <div class="mv-item">
+    <div class="mv-icon">
+    <i class="fas fa-bullseye"></i>
+    </div>
+    <h3>Our Mission</h3>
+    <p>To empower businesses through innovative technology solutions that drive growth, efficiency, and competitive advantage in an increasingly digital world.</p>
+    </div>
+    <div class="mv-item">
+    <div class="mv-icon">
+    <i class="fas fa-eye"></i>
+    </div>
+    <h3>Our Vision</h3>
+    <p>To be recognized as a global leader in delivering transformative digital experiences that redefine industries and create lasting impact.</p>
+    </div>
+    <div class="mv-item">
+    <div class="mv-icon">
+    <i class="fas fa-handshake"></i>
+    </div>
+    <h3>Our Values</h3>
+    <p>Innovation, Integrity, Excellence, Collaboration, and Client Success form the foundation of everything we do at Raysimz.</p>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Team Section -->
+    <section class="team section-padding">
+    <div class="container">
+    <div class="section-title">
+    <h2>Meet Our Team</h2>
+    <p>The talented professionals behind our success</p>
+    </div>
+    <div class="team-grid">
+    <!-- Team Member 1 -->
+    <div class="team-member animate-from-left" style="animation-delay: 0.2s">
+    <div class="member-image">
+    <img src="c:\Users\ISAAC\Desktop\ray\1000157171.jpg" alt="Raymond Musinguzi">
+    <div class="member-social">
+     <a href="https://wa.me/256760686144"><i class="fab fa-whatsapp"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+    </div>
+    </div>
+    <div class="member-info">
+    <h3>RAYMOND MUSINGUZI</h3>
+    <p>Creative Director</p>
+    </div>
+    </div>
+    <!-- Team Member 2 -->
+    <div class="team-member animate-from-bottom" style="animation-delay: 0.4s">
+    <div class="member-image">
+    <img src="c:\Users\ISAAC\Desktop\ray\1000127116.jpg" alt="Daniel Nasasira">
+    <div class="member-social">
+    <a href="https://wa.me/256751692567"><i class="fab fa-whatsapp"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://nasdan.org"><i class="fab fa-globe"></i></a>
+
+    </div>
+    </div>
+    <div class="member-info">
+    <h3>DANIEL NASASIRA</h3>
+    <p>CTO</p>
+    </div>
+    </div>
+    <!-- Team Member 3 -->
+    <div class="team-member animate-from-bottom" style="animation-delay: 0.6s">
+    <div class="member-image">
+    <img src="images/mike-johnson.jpg" alt="Mike Johnson">
+    <div class="member-social">
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+    </div>
+    <div class="member-info">
+    <h3>MIKE JOHNSON</h3>
+    <p>Robotic Program Lead</p>
+    </div>
+    </div>
+    <!-- Team Member 4 -->
+    <div class="team-member animate-from-right" style="animation-delay: 0.8s">
+    <div class="member-image">
+    <img src="c:\Users\ISAAC\Desktop\ray\1000269629.jpg" alt="Ephraim Tindimwebwa">
+    <div class="member-social">
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+    </div>
+    <div class="member-info">
+    <h3>EPHRAIM TINDIMWEBWA</h3>
+    <p>Digital Marketing Lead</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Clients Section -->
+    <section class="clients section-padding bg-light">
+    <div class="container">
+    <div class="section-title">
+    <h2>Our Partners</h2>
+    <p>We're proud to have worked with these amazing companies</p>
+    </div>
+    <div class="clients-grid">
+    <!-- Client 1 -->
+    <div class="client-logo animate-from-left" style="animation-delay: 0.2s">
+    <img src="c:\Users\ISAAC\Desktop\ray\Screenshot_20250425-091424.jpg" alt="The Wit Technologies">
+    </div>
+    <!-- Client 2 -->
+    <div class="client-logo animate-from-bottom" style="animation-delay: 0.4s">
+    <img src="c:\Users\ISAAC\Downloads\IMG_3547.jpg" alt="NASDAN">
+    </div>
+    <!-- Client 3 -->
+    <div class="client-logo animate-from-bottom" style="animation-delay: 0.6s">
+    <img src="c:\Users\ISAAC\Downloads\IMG_3571.JPG" alt="INNOVATION VILLAGE">
+    </div>
+    <!-- Client 4 -->
+    <div class="client-logo animate-from-right" style="animation-delay: 0.8s">
+    <img src="c:\Users\ISAAC\Downloads\IMG_3572.JPG" alt="FUNDI BOTS">
+    </div>
+    </div>
+    </div>
+    </section>
+    </section>
+    <!-- Services Page -->
+    <section id="services" class="page">
+        <!-- Page Banner -->
+        <section class="page-banner">
+            <div class="container">
+                <h1>Our Services</h1>
+                <p>Comprehensive digital solutions tailored to your business needs</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What We Offer</h2>
+                    <p>We provide end-to-end digital solutions to help your business thrive in the digital age</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card animate-from-left" id="web-development">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>WEB DEVELOPMENT</h3>
+                            <p>We create responsive, high-performance websites and web applications using the latest technologies. Our solutions are tailored to your specific business requirements and designed for optimal user experience.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Custom website design & development</li>
+                                <li><i class="fas fa-check"></i> E-commerce solutions</li>
+                                <li><i class="fas fa-check"></i> Content Management Systems</li>
+                                <li><i class="fas fa-check"></i> Web application development</li>
+                                <li><i class="fas fa-check"></i> API development & integration</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-card animate-from-bottom" id="app-development">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>APP DEVELOPMENT</h3>
+                            <p>We build native and cross-platform mobile applications for iOS and Android that deliver seamless user experiences and drive business growth.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> iOS app development</li>
+                                <li><i class="fas fa-check"></i> Android app development</li>
+                                <li><i class="fas fa-check"></i> Cross-platform solutions</li>
+                                <li><i class="fas fa-check"></i> UI/UX design</li>
+                                <li><i class="fas fa-check"></i> App maintenance & support</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-card animate-from-right" id="graphic-design">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>GRAPHIC DESIGN</h3>
+                            <p>Our creative team delivers stunning visual designs that effectively communicate your brand message and captivate your audience.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Brand identity design</li>
+                                <li><i class="fas fa-check"></i> Logo design</li>
+                                <li><i class="fas fa-check"></i> Marketing materials</li>
+                                <li><i class="fas fa-check"></i> Social media graphics</li>
+                                <li><i class="fas fa-check"></i> Print design</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-card animate-from-left" id="robotics-training">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>STEM & ROBOTICS</h3>
+                            <p>We offer comprehensive robotics education programs for schools, businesses, and individuals looking to develop skills in this transformative field.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> School robotics programs</li>
+                                <li><i class="fas fa-check"></i> Corporate training</li>
+                                <li><i class="fas fa-check"></i> Workshops & bootcamps</li>
+                                <li><i class="fas fa-check"></i> Curriculum development</li>
+                                <li><i class="fas fa-check"></i> Competition preparation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-card animate-from-bottom" id="digital-marketing">
+                        <div class="service-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>DIGITAL MARKETING</h3>
+                            <p>We develop and execute data-driven digital marketing strategies that increase your online visibility, generate leads, and drive conversions.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> SEO Services</li>
+                                <li><i class="fas fa-check"></i> Social Media marketing</li>
+                                <li><i class="fas fa-check"></i> Content marketing</li>
+                                <li><i class="fas fa-check"></i> PPC advertising</li>
+                                <li><i class="fas fa-check"></i> Email marketing</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-card animate-from-right">
+                        <div class="service-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>IT CONSULTATION</h3>
+                            <p>Our experts provide strategic guidance to help you leverage technology for business growth and operational efficiency.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Technology strategy</li>
+                                <li><i class="fas fa-check"></i> Digital transformation</li>
+                                <li><i class="fas fa-check"></i> Cloud solutions</li>
+                                <li><i class="fas fa-check"></i> IT infrastructure</li>
+                                <li><i class="fas fa-check"></i> Security consulting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Process Section -->
+        <section class="process section-padding bg-light">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Process</h2>
+                    <p>We follow a structured approach to ensure project success</p>
+                </div>
+                <div class="process-steps">
+                    <div class="process-item animate-from-left">
+                        <div class="process-number">1</div>
+                        <h3>Discovery</h3>
+                        <p>We begin by understanding your business goals, target audience, and project requirements.</p>
+                    </div>
+                    <div class="process-item animate-from-bottom">
+                        <div class="process-number">2</div>
+                        <h3>Planning</h3>
+                        <p>We create a detailed project plan with timelines, milestones, and deliverables.</p>
+                    </div>
+                    <div class="process-item animate-from-bottom">
+                        <div class="process-number">3</div>
+                        <h3>Design</h3>
+                        <p>Our designers create wireframes and prototypes for your review and feedback.</p>
+                    </div>
+                    <div class="process-item animate-from-right">
+                        <div class="process-number">4</div>
+                        <h3>Development</h3>
+                        <p>Our developers bring the designs to life with clean, efficient code.</p>
+                    </div>
+                    <div class="process-item animate-from-left">
+                        <div class="process-number">5</div>
+                        <h3>Testing</h3>
+                        <p>We rigorously test the solution across devices and platforms.</p>
+                    </div>
+                    <div class="process-item animate-from-bottom">
+                        <div class="process-number">6</div>
+                        <h3>Launch</h3>
+                        <p>We deploy the solution and provide training and documentation.</p>
+                    </div>
+                    <div class="process-item animate-from-right">
+                        <div class="process-number">7</div>
+                        <h3>Support</h3>
+                        <p>We offer ongoing maintenance and support services.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta section-padding">
+            <div class="container">
+                <div class="cta-content animate-from-bottom">
+                    <h2>Ready to Start Your Project?</h2>
+                    <p>Get in touch with us today to discuss your requirements</p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">Contact Us</a>
+                        <a href="#pricing" class="btn btn-secondary" onclick="showPage('pricing'); return false;">View Pricing</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Portfolio Page -->
+    <section id="portfolio" class="page">
+        <!-- Page Banner -->
+        <section class="page-banner">
+            <div class="container">
+                <h1>Our Portfolio</h1>
+                <p>Explore our recent projects and success stories</p>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Featured Work</h2>
+                    <p>Here are some of our most recent and notable projects</p>
+                </div>
+                <div class="portfolio-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                    <button class="filter-btn" data-filter="app">App Development</button>
+                    <button class="filter-btn" data-filter="design">Graphic Design</button>
+                    <button class="filter-btn" data-filter="robotics">Robotics</button>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item animate-from-left" data-category="web" id="project1">
+                        <div class="portfolio-image">
+                            <img src="images/project1.jpg" alt="E-commerce Platform">
+                            <div class="portfolio-overlay">
+                                <h3>E-commerce Platform</h3>
+                                <p>Custom online store with advanced features</p>
+                                <a href="#" class="btn btn-small">View Project</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>E-commerce Platform</h3>
+                            <p>Web Development</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item animate-from-bottom" data-category="app" id="project2">
+                        <div class="portfolio-image">
+                            <img src="images/project2.jpg" alt="Mobile Banking App">
+                            <div class="portfolio-overlay">
+                                <h3>Mobile Banking App</h3>
+                                <p>Secure financial application for iOS & Android</p>
+                                <a href="#" class="btn btn-small">View Project</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Mobile Banking App</h3>
+                            <p>App Development</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item animate-from-right" data-category="robotics" id="project3">
+                        <div class="portfolio-image">
+                            <img src="images/project3.jpg" alt="School Robotics Program">
+                            <div class="portfolio-overlay">
+                                <h3>School Robotics Program</h3>
+                                <p>STEM education initiative for high schools</p>
+                                <a href="#" class="btn btn-small">View Project</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>School Robotics Program</h3>
+                            <p>Robotics Training</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item animate-from-left" data-category="design" id="project4">
+                        <div class="portfolio-image">
+                            <img src="images/project4.jpg" alt="Brand Identity Design">
+                            <div class="portfolio-overlay">
+                                <h3>Brand Identity Design</h3>
+                                <p>Complete visual identity for startup</p>
+                                <a href="#services" class="btn btn-small">View Project</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Brand Identity Design</h3>
+                            <p>Graphic Design</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item animate-from-bottom" data-category="web" id="project5">
+                        <div class="portfolio-image">
+                            <img src="images/project5.jpg" alt="Corporate Website">
+                            <div class="portfolio-overlay">
+                                <h3>Corporate Website</h3>
+                                <p>Modern responsive website for law firm</p>
+                                <a href="#" class="btn btn-small">View Project</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Corporate Website</h3>
+                            <p>Web Development</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item animate-from-right" data-category="app" id="project6">
+                        <div class="portfolio-image">
+                            <img src="images/project6.jpg" alt="Fitness Tracking App">
+                            <div class="portfolio-overlay">
+                                <h3>Fitness Tracking App</h3>
+                                <p>Health and wellness application</p>
+                                <a href="#" class="btn btn-small">View Project</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Fitness Tracking App</h3>
+                            <p>App Development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section-padding bg-light">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Client Success Stories</h2>
+                    <p>Hear what our clients say about working with us</p>
+                </div>
+                <div class="testimonials-slider">
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <p>"The e-commerce platform developed by Raysimz has transformed our online sales. The user experience is seamless, and the backend administration is incredibly intuitive. Our revenue has increased by 150% since launch."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="c:\Users\ISAAC\Desktop\ray\1000269644.jpg" alt="David Wilson">
+                            <h4>David Wilson</h4>
+                            <p>CEO, UrbanFashion</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <p>"Raysimz developed our mobile banking app with exceptional attention to security and usability. Their team was professional, met all deadlines, and delivered a product that exceeded our expectations."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="c:\Users\ISAAC\Desktop\ray\Screenshot_20241227-231233.jpg" alt="Maria Garcia">
+                            <h4>Maria Garcia</h4>
+                            <p>Director, First Regional Bank</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <p>"The robotics training program implemented in our school district has been revolutionary. Students who previously showed little interest in STEM subjects are now excelling and considering tech careers."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="c:\Users\ISAAC\Desktop\ray\1000269629.jpg" alt="Robert Chen">
+                            <h4>Robert Chen</h4>
+                            <p>Superintendent, Metro School District</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta section-padding">
+            <div class="container">
+                <div class="cta-content animate-from-bottom">
+                    <h2>Have a Project in Mind?</h2>
+                    <p>Let's discuss how we can bring your ideas to life</p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">Get in Touch</a>
+                        <a href="#pricing" class="btn btn-secondary" onclick="showPage('pricing'); return false;">View Pricing</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Pricing Page -->
+    <section id="pricing" class="page">
+        <!-- Page Banner -->
+        <section class="page-banner">
+            <div class="container">
+                <h1>Pricing Plans</h1>
+                <p>Flexible pricing options to suit your business needs</p>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Pricing</h2>
+                    <p>Choose the plan that works best for your business</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card animate-from-left">
+                        <div class="pricing-header">
+                            <h3>Basic</h3>
+                            <div class="pricing-price">
+                                $203 <span>/ project</span>
+                            </div>
+                            <p>Perfect for small projects and startups</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Custom website design</li>
+                                <li><i class="fas fa-check"></i> Up to 5 pages</li>
+                                <li><i class="fas fa-check"></i> Basic SEO setup</li>
+                                <li><i class="fas fa-check"></i> Contact form</li>
+                                <li><i class="fas fa-check"></i> 1 month support</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <a href="basic" class="btn btn-primary " onclick="showPage('contact'); return false">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="pricing-card animate-from-bottom">
+                        <div class="pricing-popular">Popular</div>
+                        <div class="pricing-header">
+                            <h3>Standard</h3>
+                            <div class="pricing-price">
+                                $406 <span>/ project</span>
+                            </div>
+                            <p>Ideal for growing businesses</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Custom web application</li>
+                                <li><i class="fas fa-check"></i> Up to 15 pages</li>
+                                <li><i class="fas fa-check"></i> Advanced SEO</li>
+                                <li><i class="fas fa-check"></i> CMS integration</li>
+                                <li><i class="fas fa-check"></i> 3 months support</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <a href="standard" class="btn btn-primary " onclick="showPage('contact'); return false">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="pricing-card animate-from-right">
+                        <div class="pricing-header">
+                            <h3>Premium</h3>
+                            <div class="pricing-price">
+                                $812<span>/ project</span>
+                            </div>
+                            <p>For complex projects and enterprises</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Custom web/mobile app</li>
+                                <li><i class="fas fa-check"></i> Unlimited pages</li>
+                                <li><i class="fas fa-check"></i> Comprehensive SEO</li>
+                                <li><i class="fas fa-check"></i> E-commerce functionality</li>
+                                <li><i class="fas fa-check"></i> 6 months support</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <a href="#premium" class="btn btn-primary" onclick="showPage('contact'); return false;">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Calculator Section -->
+        <section class="calculator section-padding bg-light">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Project Cost Calculator</h2>
+                    <p>Get an estimate for your custom project</p>
+                </div>
+                <div class="calculator">
+                    <div class="calculator-grid">
+                        <div class="calculator-group">
+                            <label for="project-type">Project Type</label>
+                            <select id="project-type">
+                                <option value="website">Website</option>
+                                <option value="webapp">Web Application</option>
+                                <option value="mobileapp">Mobile Application</option>
+                            </select>
+                        </div>
+                        <div class="calculator-group">
+                            <label for="project-size">Project Size</label>
+                            <select id="project-size">
+                                <option value="small">Small (1-5 pages/screens)</option>
+                                <option value="medium">Medium (6-15 pages/screens)</option>
+                                <option value="large">Large (16-30 pages/screens)</option>
+                                <option value="xlarge">Enterprise (30+ pages/screens)</option>
+                            </select>
+                        </div>
+                        <div class="calculator-group">
+                            <label for="design-complexity">Design Complexity</label>
+                            <select id="design-complexity">
+                                <option value="simple">Simple (Template-based)</option>
+                                <option value="standard">Standard (Custom Design)</option>
+                                <option value="complex">Complex (Highly Customized)</option>
+                            </select>
+                        </div>
+                        <div class="calculator-group">
+                            <label for="timeframe">Timeframe</label>
+                            <select id="timeframe">
+                                <option value="relaxed">Relaxed (3+ months)</option>
+                                <option value="standard">Standard (1-3 months)</option>
+                                <option value="urgent">Urgent (Less than 1 month)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="calculator-result">
+                        <h3>Estimated Project Cost</h3>
+                        <div class="estimated-price">$202</div>
+                        <p>This is an estimate based on your selections. Contact us for the right detailed quote about all the services.</p>
+                        <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">Get Exact Quote</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Answers to common questions about our services and pricing</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item animate-from-left">
+                        <h3>What's included in your pricing?</h3>
+                        <p>Our pricing includes all development work, design, testing, and deployment. It also includes a specified period of post-launch support. Additional services like content creation, hosting, and ongoing maintenance can be added as needed.</p>
+                    </div>
+                    <div class="faq-item animate-from-bottom">
+                        <h3>How long does a typical project take?</h3>
+                        <p>Project timelines vary based on scope and complexity. A simple website might take 2-4 weeks, while a complex web application could take 3-6 months. We'll provide a detailed timeline during our initial consultation.</p>
+                    </div>
+                    <div class="faq-item animate-from-right">
+                        <h3>Do you offer ongoing support?</h3>
+                        <p>Yes, we offer various support packages to meet your needs. Our basic plans include limited post-launch support, and we offer monthly retainer options for businesses that need ongoing maintenance and updates.</p>
+                    </div>
+                    <div class="faq-item animate-from-left">
+                        <h3>Can I make changes during development?</h3>
+                        <p>We understand that requirements can evolve. We build in flexibility for minor changes. Significant changes to scope may affect timeline and budget, which we'll discuss with you before proceeding.</p>
+                    </div>
+                    <div class="faq-item animate-from-bottom">
+                        <h3>What about hosting and domain?</h3>
+                        <p>We can recommend and set up hosting solutions that match your needs. Some clients prefer to handle this themselves, while others opt for our managed hosting services. We'll guide you through the options.</p>
+                    </div>
+                    <div class="faq-item animate-from-right">
+                        <h3>How do payments work?</h3>
+                        <p>We typically require a 30% deposit to begin work, with milestone payments throughout the project and a final payment upon completion. For larger projects, we can discuss alternative payment schedules.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta section-padding">
+            <div class="container">
+                <div class="cta-content animate-from-bottom">
+                    <h2>Ready to Start Your Project?</h2>
+                    <p>Get in touch with us today to discuss your requirements</p>
+                    <div class="cta-buttons">
+                        <a href="https://wa.me/256760686144" class="btn btn-primary">Contact Us</a>
+                    </div>
+        </section>
+    </section>
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+        <!-- Page Banner -->
+        <section class="page-banner">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Get in touch with our team to discuss your project</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section-padding">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info animate-from-left">
+                        <h3>Let's Talk About Your Project</h3>
+                        <p>We're here to answer your questions and discuss how we can help bring your ideas to life. Fill out the form or contact us directly using the information below.</p>
+                        
+                        <div class="contact-details">
+                            <p><i class="fas fa-map-marker-alt"></i><b>Mbarara-Uganda</b></p>
+                            <p><a href="tel:+256 760-686144" style="
+                            color: #000;
+                            text-decoration: none;
+                            transition: color 0.3s ease;"
+                            onmouseover="this.style.color='#0066ff'"
+                            onmouseout="this.style.color='#000'">
+                            <i class="fas fa-phone"></i> +256 760-686144</a></li></p>
+                            <p><a href="mailto:raysimzug@gmail.com" style="
+                                color: #000;
+                                text-decoration: none;
+                                transition: color 0.3s ease;"
+                                onmouseover="this.style.color='#0066ff'"
+                                onmouseout="this.style.color='#000'">
+                                <i class="fas fa-envelope"></i> raysimzug@gmail.com</a></li></p>
+                            <p><i class="fas fa-clock"></i><b>Monday - Friday: 9am - 5pm</b></p>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="https://wa.me/256760686144" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://twitter.com/raysimz" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                            <a href="https://ug.linkedin.com/in/raysimz-ug-738470343" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/raysimz?igsh=0GQ5ZDc2ODk2ZA%3D%3D&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://github.com/raysimz" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form animate-from-right">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <select id="service" name="service">
+                                    <option value="web">Web Development</option>
+                                    <option value="app">App Development</option>
+                                    <option value="design">Graphic Design</option>
+                                    <option value="robotics">Robotics Training</option>
+                                    <option value="marketing">Digital Marketing</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.3325385303074!2d-121.89982268469422!3d37.3348799798418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcb439a7d0a6f%3A0x3b9ca8e5a5b6e8a0!2sSilicon%20Valley!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+    </section>
+<footer>
+    <div class="footer-container">
+    <div class="footer-content">
+    <!-- Column 1: Brand -->
+    <div class="footer-col">
+        <h3>Raysimz</h3>
+        <p>Innovative software solutions to power<br> your digital transformation and business<br>growth.</p>
+        <div class="social-links">
+            <a href="https://wa.me/256760686144" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://twitter.com/raysimz" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://linkedin.com/company/raysimz" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/raysimz" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/raysimz" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+    <!-- Column 2: Services -->
+    <div class="footer-column">
+    <h3>Services</h3>
+    <ul>
+    <li><a href="#web-development" class="read-more" onclick="showPage('services', 'web-development'); return false;">Web development <i class="fas fa-arrow-right"></i></a>
+    <li><a href="#app-development" class="read-more" onclick="showPage('services', 'app-development'); return false;">App development <i class="fas fa-arrow-right"></i></a>
+    <li><a href="#robotics-training" class="read-more" onclick="showPage('services', 'robotics-training'); return false;">Robotics Training <i class="fas fa-arrow-right"></i></a>
+    <li><a href="#digital-marketing" class="read-more" onclick="showPage('services', 'digital-marketing'); return false;">Digital Marketing <i class="fas fa-arrow-right"></i></a>
+    </ul>
+    </div>
+    <!-- Column 3: Contact -->
+    <div class="footer-column">
+    <h3>Contact</h3>
+    <ul>
+    <li><a href="tel:+256760686144"><i class="fas fa-phone"></i> +256 760-686144</a></li>
+    <li><a href="mailto:raysimzuq@gmail.com"><i class="fas fa-envelope"></i> Email Us</a></li>
+    </ul>
+    </div>
+    <!-- Column 4: Location (Interactive Map) -->
+    <div class="footer-column">
+    <h3>Location</h3>
+    <a href="https://www.google.com/maps/place/Raysimz,+Mbarara/@-0.614335,30.6501887,16z/data=!4m6!3m5!1s0x19d91b005860b1c5:0x32a8db2b24e36d77!8m2!3d-0.614335!4d30.6501887!16s%2Fg%2F11vrht8kd7?utm_campaign=ml-sul&g_ep=Eg1tbF8yMDI1MDQyM18wIOC7DCoASAJQAg%3D%3D
+    " class="map-box" target="_blank">
+    <!-- Replace with your static map image or Google Maps embed -->
+    <img src="c:\Users\ISAAC\Pictures\Screenshots\Screenshot (4).png" alt="" Location">
+    <div class="map-label">View on Google Maps</div>
+    </a>
+    </div>
+    </div>
+    <div class="copyright">
+        <p style="color: white;"> 2025 Raysimz. All Rights Reserved. | </p>
+
+    </div>
+    </div>
+    </footer>
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            document.querySelector('.preloader').style.display = 'none';
+        });
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a nav link
+        document.querySelectorAll('.navbar .nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                const targetPage =this.getAttribute('href').substring(1);
+                console.log("Header nav going to:", targetPage);
+                showPage(targetPage);
+            });
+        });
+        document.querySelectorAll ('.footer-link'). forEach(link=> {
+            link.addEventListener('click', (e)=> {
+                e.preventDefault();
+                showPage(link.getAttribute('href').substring(1));
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#home') {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    } else if (targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 70,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                }
+            });
+        });
+
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${pageId}`) {
+                    link.classList.add('active');
+                }
+                //Form Submission
+                document.getElementById('contactForm')
+                .addEventListener('submit', function(e){
+                    e.preventDefault(); alert('Thank you! Your message has been sent.');
+                    this.reset();
+                });
+            });
+            //Hide all pages
+            document.querySelectorAll('.page').forEach(page =>{
+                page.style.display ='none';
+            });
+            //Show the selected page
+            document.getElementById(pageId).style.display = 'block';
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Handle page navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').substring(1);
+                    showPage(pageId);
+                }
+            });
+        });
+
+        // Show home page by default
+        showPage('home');
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.header').classList.add('scrolled');
+            } else {
+                document.querySelector('.header').classList.remove('scrolled');
+            }
+        });
+
+        // Portfolio filter
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Filter items
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.portfolio-item').forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Pricing calculator
+        const calculatorInputs = document.querySelectorAll('#project-type, #project-size, #design-complexity, #timeframe');
+        calculatorInputs.forEach(input => {
+            input.addEventListener('change', updateEstimate);
+        });
+
+        function updateEstimate() {
+            const projectType = document.getElementById('project-type').value;
+            const projectSize = document.getElementById('project-size').value;
+            const designComplexity = document.getElementById('design-complexity').value;
+            const timeframe = document.getElementById('timeframe').value;
+            
+            let basePrice = 0;
+            
+            // Set base price based on project type
+            switch(projectType) {
+                case 'website':
+                    basePrice = 2000;
+                    break;
+                case 'webapp':
+                    basePrice = 5000;
+                    break;
+                case 'mobileapp':
+                    basePrice = 8000;
+                    break;
+                case 'ecommerce':
+                    basePrice = 6000;
+                    break;
+                case 'robotics':
+                    basePrice = 4000;
+                    break;
+            }
+            
+            // Adjust for size
+            switch(projectSize) {
+                case 'small':
+                    basePrice *= 1;
+                    break;
+                case 'medium':
+                    basePrice *= 1.5;
+                    break;
+                case 'large':
+                    basePrice *= 2.2;
+                    break;
+                case 'xlarge':
+                    basePrice *= 3.5;
+                    break;
+            }
+            
+            // Adjust for design complexity
+            switch(designComplexity) {
+                case 'simple':
+                    basePrice *= 1;
+                    break;
+                case 'standard':
+                    basePrice *= 1.3;
+                    break;
+                case 'complex':
+                    basePrice *= 1.8;
+                    break;
+            }
+            
+            // Adjust for timeframe
+            switch(timeframe) {
+                case 'relaxed':
+                    basePrice *= 1;
+                    break;
+                case 'standard':
+                    basePrice *= 1.2;
+                    break;
+                case 'urgent':
+                    basePrice *= 1.5;
+                    break;
+            }
+            
+            // Display the estimated price
+            document.querySelector('.estimated-price').textContent = '$' + Math.round(basePrice).toLocaleString();
+        }
+
+        // Initialize calculator
+        updateEstimate();
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to your server
+            // For this example, we'll just show an alert
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-from-left, .animate-from-right, .animate-from-top, .animate-from-bottom');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translate(0, 0)';
+                }
+            });
+        }
+        
+        // Run animation function on scroll
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Initialize animations on page load
+        animateOnScroll();
+        // Form Submission
+        document.getElementById('contactForm')
+        .addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert ('Thank you! Your message has been sent.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
